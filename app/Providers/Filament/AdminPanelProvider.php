@@ -12,6 +12,7 @@ use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
+use Firefly\FilamentBlog\Blog;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -28,8 +29,16 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->sidebarWidth('250px')
+            ->sidebarCollapsibleOnDesktop()
+            ->brandLogo(asset('assets/img/consulting_logo.png'))
+            ->brandLogoHeight('3rem')
+            // ->brandLogoWidth('2rem')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Cyan,
+            ])
+            ->plugins([
+                Blog::make()
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
