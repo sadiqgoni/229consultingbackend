@@ -13,7 +13,7 @@ class ListComments extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            // Comments should not be created from admin panel
         ];
     }
 }

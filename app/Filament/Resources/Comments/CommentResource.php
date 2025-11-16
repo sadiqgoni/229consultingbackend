@@ -17,14 +17,15 @@ use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
+use Illuminate\Database\Eloquent\Model;
 
 class CommentResource extends Resource
 {
     protected static ?string $model = Comment::class; // Use our custom Comment model
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-chat-bubble-left-right';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-chat-bubble-bottom-center-text';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Blog';
+    protected static string|\UnitEnum|null $navigationGroup = 'Blog';
 
     protected static ?int $navigationSort = 5;
 
@@ -38,18 +39,20 @@ class CommentResource extends Resource
         return $table
             ->modifyQueryUsing(fn($query) => $query->with(['user', 'post']))
             ->columns([
-                Tables\Columns\TextColumn::make('user_name')
-                    ->label('User')
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Fullname')
+                    ->color(fn(?Model $record): array => \Filament\Support\Colors\Color::hex(optional($record->tenant)->color ?? '#22e03a'))
+                    ->weight('bold')
+                    ->toggleable()
+                    ->searchable()
+                    ->sortable()
                     ->getStateUsing(function ($record) {
                         if ($record->user) {
                             return $record->user->name;
                         }
                         return $record->name ?? 'Guest';
-                    })
-                    ->badge()
-                    ->color(function ($record) {
-                        return $record->user ? 'success' : 'gray';
                     }),
+
                 Tables\Columns\TextColumn::make('post.title')
                     ->label('Post')
                     ->sortable()

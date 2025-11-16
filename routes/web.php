@@ -106,7 +106,6 @@ Route::post('/blog/{slug}/comment', function ($slug) {
     $user = auth()->user();
     
     \Firefly\FilamentBlog\Models\Comment::create([
-        'user_id' => $user?->id, 
         'post_id' => $post->id,
         'name' => $validated['name'], 
         'comment' => $validated['comment'],

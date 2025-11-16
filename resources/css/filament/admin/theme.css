@@ -1,0 +1,280 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+:root {
+  --sidebar-width: 16rem;
+  --font-family: 'Inter, sans-serif';
+}
+
+.fi-card {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.fi-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.fi-widget {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.fi-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.fi-sidebar-group {
+  margin-bottom: 1rem;
+}
+
+.fi-btn {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.fi-btn:hover {
+  transform: translateY(-1px);
+}
+
+.fi-ta-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.fi-input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fi-input:focus {
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.2);
+}
+.fi-sidebar-group-label{
+  color: #111827; /* text-gray-900 */
+}
+.dark .fi-sidebar-group-label{
+  color: #e5e7eb; /* text-gray-200 */
+}
+.dark .fi-sidebar {
+  background: #0f172a !important;
+  border-right: 1px solid #1e293b !important;
+}
+
+.dark .fi-card {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+}
+
+.fi-stats-overview-stat {
+  transition: transform 0.2s ease;
+}
+
+.fi-stats-overview-stat:hover {
+  transform: scale(1.025);
+}
+
+.fi-sidebar {
+  background-color: #2b999f; /* yellow-500 */
+  border-right: 1px solid #d1d5db; /* border-gray-300 */
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); /* shadow-lg */
+}
+.dark .fi-sidebar {
+  background-color: #0f172a !important;
+  border-right-color: #1e293b !important;
+}
+
+.fi-sidebar-nav {
+  background-color: #facc15; /* yellow-400 */
+  margin-right: 1rem; /* mr-4 */
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); /* shadow-md */
+  border-radius: 0.5rem; /* rounded-lg */
+}
+.fi-sidebar-nav:hover {
+  background-color: #fde047; /* hover:yellow-300 */
+}
+.dark .fi-sidebar-nav {
+  background-color: #1e293b !important;
+}
+
+.fi-sidebar-header {
+  background-color: #eab308; /* yellow-500 */
+  box-shadow: none;
+  ring: 0;
+  margin-right: 1rem;
+}
+.dark .fi-sidebar-header {
+  background-color: #0f172a !important;
+}
+
+.fi-topbar {
+    background: #2b999f !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    border-bottom: 1px solid #eab308 !important;
+}
+
+/* Dark mode topbar */
+.dark .fi-topbar {
+    background: #111827 !important;
+    border-bottom: 1px solid #374151 !important;
+}
+
+/* Page heading */
+.fi-header-heading {
+    color: #eab308 !important;
+    font-weight: 700 !important;
+    font-size: 1.75rem !important;
+}
+
+.fi-header-subheading {
+    color: #6B7280 !important;
+}
+
+/* Dark mode page heading */
+.dark .fi-header-heading {
+    color: #facc15 !important;
+}
+
+.dark .fi-header-subheading {
+    color: #d1d5db !important;
+}
+
+
+/* Sidebar Item Active */
+.fi-sidebar-item-active a {
+  background-color: #ca8a04; /* yellow-600 */
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+.fi-sidebar-item-active a:hover {
+  background-color: #eab308; /* hover:yellow-500 */
+}
+.dark .fi-sidebar-item-active a {
+  background-color: #b45309 !important;
+}
+.dark .fi-sidebar-item-active a:hover {
+  background-color: #d97706 !important;
+}
+
+/* Sidebar Text and Icon */
+.fi-sidebar-item-label,
+.fi-sidebar-item-icon,
+.fi-sidebar-group-label,
+.fi-icon-btn {
+  color: #111827; /* text-gray-900 */
+}
+.dark .fi-sidebar-item-label,
+.dark .fi-sidebar-item-icon,
+.dark .fi-sidebar-group-label,
+.dark .fi-icon-btn {
+  color: #f1f5f9 !important;
+}
+
+/* Sidebar Group Icon */
+.fi-sidebar-group-icon {
+  color: #111827;
+}
+.dark .fi-sidebar-group-icon {
+  color: #f1f5f9 !important;
+}
+
+/* Active Text and Icon */
+.fi-sidebar-item-active .fi-sidebar-item-label,
+.fi-sidebar-item-active .fi-sidebar-item-icon,
+.fi-sidebar-item-active .fi-sidebar-group-label,
+.fi-sidebar-item-active .fi-icon-btn {
+  color: #fff;
+}
+.dark .fi-sidebar-item-active .fi-sidebar-item-label,
+.dark .fi-sidebar-item-active .fi-sidebar-item-icon,
+.dark .fi-sidebar-item-active .fi-sidebar-group-label,
+.dark .fi-sidebar-item-active .fi-icon-btn {
+  color: #fff;
+}
+
+/* Header */
+.fi-header-heading {
+  background: linear-gradient(to right, #ca8a04, #facc15); /* from-yellow-600 to-yellow-400 */
+  color: #eab308 !important;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Animation */
+.fi-header-heading,
+.fi-header-subheading,
+.fi-breadcrumbs,
+.fi-section-content > div,
+.fi-in-tabs-tab > dl {
+  transition: all 1s;
+  opacity: 1;
+  transform: none;
+}
+
+/* Body Background */
+body {
+  background-color: #fef3c7 !important; /* bg-yellow-200 */
+}
+.dark body {
+  background-color: #0f172a !important;
+}
+
+/* Login Page Background */
+.fi-simple-main {
+  background-color: rgba(255, 255, 255, 0.9); /* bg-white/90 */
+  backdrop-filter: blur(4px);
+}
+.dark .fi-simple-main {
+  background-color: rgba(15, 23, 42, 0.9) !important;
+}
+.fi-logo {
+  width: auto;
+  max-width: 800px;
+  height: 5rem !important;
+  object-fit: contain;
+  object-position: center;
+  transition-property: all;
+  transition-duration: 300ms;
+}
+
+.fi-logo:is(img) {
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); /* shadow-md */
+  border-radius: 0.75rem; /* rounded-xl */
+  background-color: #fef3c7; /* bg-yellow-200 */
+  border: 2px solid #eab308; /* ring-2 ring-yellow-500/20 */
+  transform: scale(1); /* default scale */
+
+  transition: all 0.3s ease-in-out;
+}
+
+.fi-logo:is(img):hover {
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); /* hover:shadow-lg */
+  border-color: #eab308; /* hover:ring-yellow-500/30 */
+  transform: scale(1.05) !important;
+}
+
+/* Dark mode support (you need a class or attribute like `dark` on html/body) */
+.dark .fi-logo:is(img) {
+  background-color: #1e293b !important;
+  border-color: rgba(250, 204, 21, 0.3) !important;
+}
+.dark .fi-logo:is(img):hover {
+  border-color: rgba(250, 204, 21, 0.5) !important;
+}
+
+.fi-logo:not(img) {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  color: #0f172a; /* text-green-900 */
+}
+
+.dark .fi-logo:not(img) {
+  color: #facc15 !important;
+}

@@ -683,6 +683,14 @@
   
     <!-- Main -->
     <main>
+      <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
       <!-- Page Banner -->
       <div class="page-banner overlay">
         <picture class="media media-bg">
