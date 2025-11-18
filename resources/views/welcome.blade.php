@@ -604,7 +604,7 @@
                                 preserving their momentum, driving change, turning disruption into growth.
                             </div>
                             <div class="hero-button-wrap buttons" data-aos="fade-up" data-aos-delay="200">
-                                <a href="/services" class="button button--primary" aria-label="hero button">
+                                <a href="mailto:info@229consult.com?subject=Consultation%20Request&body=Hello%20229%20Consulting%20Team%2C%0A%0AI%20would%20like%20to%20book%20a%20consultation.%20Here%20are%20my%20details%3A%0A-%20Name%3A%20%0A-%20Company%3A%20%0A-%20Phone%3A%20%0A-%20Preferred%20Date%2FTime%3A%20%0A-%20Notes%3A%20%0A%0AThank%20you." class="button button--primary" aria-label="hero button">
                                     Book a Consultation
                                     <span class="svg-wrapper">
                                         <svg class="icon-20" width="20" height="20" viewbox="0 0 20 20"
@@ -615,7 +615,7 @@
                                         </svg>
                                     </span>
                                 </a>
-                                <a href="/services" class="button button--secondary" aria-label="hero button">
+                                <a href="mailto:info@229consult.com?subject=Partnership%20Inquiry&body=Hello%20229%20Consulting%20Team%2C%0A%0AI%20would%20like%20to%20discuss%20a%20potential%20partnership.%20Here%20are%20my%20details%3A%0A-%20Name%3A%20%0A-%20Company%3A%20%0A-%20Role%3A%20%0A-%20Phone%3A%20%0A-%20Partnership%20Focus%3A%20%0A-%20Notes%3A%20%0A%0AThank%20you." class="button button--secondary" aria-label="hero button">
                                     Partner With Us
                                     <span class="svg-wrapper">
                                         <svg class="icon-20" width="20" height="20" viewbox="0 0 20 20"
@@ -2264,7 +2264,7 @@
                                         </div>
                                     </div>
                                     <div class="social-list">
-                                        <a href="#" class="svg-wrapper" aria-label="LinkedIn">
+                                        <a href="" class="svg-wrapper" aria-label="LinkedIn">
                                             <svg class="icon icon-20" xmlns="http://www.w3.org/2000/svg"
                                                 width="17" height="16" viewbox="0 0 17 16"
                                                 fill="none">
@@ -2597,7 +2597,7 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <!-- Footer Main -->
         <div class="footer-main bg-contain"
             style="background: linear-gradient(135deg, #1C2539 0%, #2a3548 100%); background-image: url({{ asset('assets/img/footer/footer.png') }}); background-blend-mode: overlay; padding: 60px 0 0 0;">
@@ -2605,21 +2605,49 @@
                 <div class="container-fluid">
                     <div class="row footer-custom-row">
                         <div class="col-12 col-md-6">
+                            <div class="footer-widget footer-widget-newsletter mb-4" data-aos="fade-up"
+                                data-aos-anchor=".footer-top">
+                                <div class="widget-heading heading text-22">Subscribe Newsletter</div>
+
+                                <p class="text text-16">
+                                    Sign up for newsletter that offer you free information.
+                                </p>
+
+                                <div class="newsletter-subscribe mt-3">
+                                    <form action="{{ route('newsletter.subscribe') }}" method="POST" class="form-newsletter d-flex justify-content-center">
+                                        @csrf
+                                        <label for="Newsletter-Subscribe" class="text visually-hidden">Subscribe Newsletter</label>
+
+                                        <input type="email" placeholder="Your email" name="email" id="Newsletter-Subscribe" class="text text-16" autocomplete="off" required>
+
+                                        <button class="newsletter-button button button--primary button-without-icon" type="submit" aria-label="Submit">
+                                            <div class="svg-wrapper">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </form>
+
+                                    @if(session('success'))
+                                        <div class="mt-3 text-success text-center">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
+
+                                    @if($errors->any())
+                                        <div class="mt-3 text-danger text-center">
+                                            @foreach($errors->all() as $error)
+                                                <div>{{ $error }}</div>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="footer-widget footer-widget-brand" data-aos="fade-up"
                                 data-aos-anchor=".footer-top">
-                                <a class="footer-logo" href="/" aria-label="229 Consulting Logo"
-                                    style="display: inline-block; background: white;  border-radius: 8px;">
-                                    <img src="{{ asset('assets/img/consulting_logo.png') }}"
-                                        alt="229 Consulting Logo" style="max-width: 150px; height: auto;"
-                                        loading="lazy">
-                                </a>
-                                <p class="text text-16">
-                                    229 Consulting delivers actionable strategy and execution support to organizations
-                                    navigating
-                                    disruption, growth, and transformation. Beyond pitch decks—we carry the work forward
-                                    until it
-                                    translates into real outcomes.
-                                </p>
+                          
                                 <ul class="social-icons list-unstyled" data-aos="fade-up"
                                     data-aos-anchor=".footer-top">
                                     <li>
@@ -2634,7 +2662,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="social-link text" href="https://www.linkedin.com/">
+                                        <a class="social-link text" href="https://www.linkedin.com/company/229-consulting/">
                                             <svg width="17" height="16" viewbox="0 0 17 16"
                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path

@@ -14,12 +14,13 @@ class Comment extends BaseComment
     protected $fillable = [
         'user_id',
         'post_id',
-        'name', // Add name field for guest comments
+        'name', 
         'comment',
         'approved',
         'approved_at',
     ];
 }
+
 
 
 

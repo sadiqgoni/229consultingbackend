@@ -68,9 +68,7 @@ class UserResource extends Resource
                         Select::make('role')
                             ->options([
                                 'admin' => 'Admin',
-                                'editor' => 'Editor',
-                                'author' => 'Author',
-                                'moderator' => 'Moderator',
+                                
                             ])
                             ->required()
                             ->default('author')
@@ -108,13 +106,8 @@ class UserResource extends Resource
                 
                 TextColumn::make('role')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'admin' => 'danger',
-                        'editor' => 'warning',
-                        'author' => 'success',
-                        'moderator' => 'info',
-                        default => 'gray',
-                    })
+                    ->weight('bold')
+                    ->color('success')
                     ->sortable()
                     ->label('Role'),
                 

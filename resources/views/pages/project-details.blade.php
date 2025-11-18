@@ -847,30 +847,58 @@
         </div>
     </main>
 
-        <!-- Footer -->
-        <footer class="mt-100">
-          <!-- Footer Main -->
-          <div class="footer-main bg-contain"
-              style="background: linear-gradient(135deg, #1C2539 0%, #2a3548 100%); background-image: url({{ asset('assets/img/footer/footer.png') }}); background-blend-mode: overlay; padding: 60px 0 0 0;">
-              <div class="footer-top" style="padding-bottom: 30px;">
-                  <div class="container-fluid">
-                      <div class="row footer-custom-row">
+       <!-- Footer -->
+       <footer class="mt-100">
+        <!-- Footer Main -->
+        <div class="footer-main bg-contain"
+            style="background: linear-gradient(135deg, #1C2539 0%, #2a3548 100%); background-image: url({{ asset('assets/img/footer/footer.png') }}); background-blend-mode: overlay; padding: 60px 0 0 0;">
+            <div class="footer-top" style="padding-bottom: 30px;">
+                <div class="container-fluid">
+                    <div class="row footer-custom-row">
                           <div class="col-12 col-md-6">
+                              <div class="footer-widget footer-widget-newsletter mb-4" data-aos="fade-up"
+                                  data-aos-anchor=".footer-top">
+                                  <div class="widget-heading heading text-22">Subscribe Newsletter</div>
+  
+                                  <p class="text text-16">
+                                      Sign up for newsletter that offer you free information.
+                                  </p>
+  
+                                  <div class="newsletter-subscribe mt-3">
+                                      <form action="{{ route('newsletter.subscribe') }}" method="POST" class="form-newsletter d-flex justify-content-center">
+                                          @csrf
+                                          <label for="Newsletter-Subscribe" class="text visually-hidden">Subscribe Newsletter</label>
+  
+                                          <input type="email" placeholder="Your email" name="email" id="Newsletter-Subscribe" class="text text-16" autocomplete="off" required>
+  
+                                          <button class="newsletter-button button button--primary button-without-icon" type="submit" aria-label="Submit">
+                                              <div class="svg-wrapper">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"></path>
+                                                  </svg>
+                                              </div>
+                                          </button>
+                                      </form>
+  
+                                      @if(session('success'))
+                                          <div class="mt-3 text-success text-center">
+                                              {{ session('success') }}
+                                          </div>
+                                      @endif
+  
+                                      @if($errors->any())
+                                          <div class="mt-3 text-danger text-center">
+                                              @foreach($errors->all() as $error)
+                                                  <div>{{ $error }}</div>
+                                              @endforeach
+                                          </div>
+                                      @endif
+                                  </div>
+                              </div>
+  
                               <div class="footer-widget footer-widget-brand" data-aos="fade-up"
                                   data-aos-anchor=".footer-top">
-                                  <a class="footer-logo" href="/" aria-label="229 Consulting Logo"
-                                      style="display: inline-block; background: white;  border-radius: 8px;">
-                                      <img src="{{ asset('assets/img/consulting_logo.png') }}"
-                                          alt="229 Consulting Logo" style="max-width: 150px; height: auto;"
-                                          loading="lazy">
-                                  </a>
-                                  <p class="text text-16">
-                                      229 Consulting delivers actionable strategy and execution support to organizations
-                                      navigating
-                                      disruption, growth, and transformation. Beyond pitch decks—we carry the work forward
-                                      until it
-                                      translates into real outcomes.
-                                  </p>
+                            
                                   <ul class="social-icons list-unstyled" data-aos="fade-up"
                                       data-aos-anchor=".footer-top">
                                       <li>
@@ -885,7 +913,7 @@
                                           </a>
                                       </li>
                                       <li>
-                                          <a class="social-link text" href="https://www.linkedin.com/">
+                                          <a class="social-link text" href="https://www.linkedin.com/company/229-consulting/">
                                               <svg width="17" height="16" viewbox="0 0 17 16"
                                                   fill="none" xmlns="http://www.w3.org/2000/svg">
                                                   <path
@@ -920,134 +948,135 @@
                                   </ul>
                               </div>
                           </div>
-                          <div class="col-12 col-md-6">
-                              <div class="footer-widget footer-widget-menu" data-aos="fade-up"
-                                  data-aos-anchor=".footer-top">
-                                  <div class="widget-heading heading text-22">Quick Link</div>
-                                  <ul class="footer-menu list-unstyled">
-                                      <li>
-                                          <a href="/about" class="text text-16 link" aria-label="About Us">
-                                              About Us
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="/team" class="text text-16 link" aria-label="Our Team">
-                                              Our Team
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="/blog" class="text text-16 link" aria-label="Blogs">
-                                              Blogs
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="/contact" class="text text-16 link" aria-label="Blogs">
-                                              Contact Us
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="col-12 col-md-6">
-                              <div class="footer-widget footer-widget-menu" data-aos="fade-up"
-                                  data-aos-anchor=".footer-top">
-                                  <div class="widget-heading heading text-22">Services</div>
-                                  <ul class="footer-menu list-unstyled">
-                                      <li>
-                                          <a href="/services" class="text text-16 link"
-                                              aria-label="GenAI Adoption for Institutions">
-                                              GenAI Adoption for Institutions
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="/services" class="text text-16 link"
-                                              aria-label="Public Sector & Development Consulting">
-                                              Public Sector & Development Consulting
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="/services" class="text text-16 link"
-                                              aria-label="Strategy & Leadership Advisory">
-                                              Strategy & Leadership Advisory
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="/services" class="text text-16 link"
-                                              aria-label="Training & Capacity Building">
-                                              Training & Capacity Building
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="col-12 col-md-6">
-                              <div class="footer-widget footer-widget-menu" data-aos="fade-up"
-                                  data-aos-anchor=".footer-top">
-                                  <div class="widget-heading heading text-22">Information</div>
-                                  <ul class="footer-menu list-unstyled">
-                                      <li>
-                                          <a href="/about" class="text text-16 link" aria-label="Working Process">
-                                              Working Process
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="/privacy-policy" class="text text-16 link"
-                                              aria-label="Privacy Policy">
-                                              Privacy Policy
-                                          </a>
-                                      </li>
-                                      <li>
-                                      <a href="/projects" class="text text-16 link"
-                                              aria-label="Impact Story">
-                                              Impact Story
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <a href="/faq" class="text text-16 link" aria-label="FAQ">
-                                              Faqs
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                        <div class="col-12 col-md-6">
+                            <div class="footer-widget footer-widget-menu" data-aos="fade-up"
+                                data-aos-anchor=".footer-top">
+                                <div class="widget-heading heading text-22">Quick Link</div>
+                                <ul class="footer-menu list-unstyled">
+                                    <li>
+                                        <a href="/about" class="text text-16 link" aria-label="About Us">
+                                            About Us
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/team" class="text text-16 link" aria-label="Our Team">
+                                            Our Team
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/blog" class="text text-16 link" aria-label="Blogs">
+                                            Blogs
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/contact" class="text text-16 link" aria-label="Blogs">
+                                            Contact Us
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="footer-widget footer-widget-menu" data-aos="fade-up"
+                                data-aos-anchor=".footer-top">
+                                <div class="widget-heading heading text-22">Services</div>
+                                <ul class="footer-menu list-unstyled">
+                                    <li>
+                                        <a href="/services" class="text text-16 link"
+                                            aria-label="GenAI Adoption for Institutions">
+                                            GenAI Adoption for Institutions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/services" class="text text-16 link"
+                                            aria-label="Public Sector & Development Consulting">
+                                            Public Sector & Development Consulting
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/services" class="text text-16 link"
+                                            aria-label="Strategy & Leadership Advisory">
+                                            Strategy & Leadership Advisory
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/services" class="text text-16 link"
+                                            aria-label="Training & Capacity Building">
+                                            Training & Capacity Building
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="footer-widget footer-widget-menu" data-aos="fade-up"
+                                data-aos-anchor=".footer-top">
+                                <div class="widget-heading heading text-22">Information</div>
+                                <ul class="footer-menu list-unstyled">
+                                    <li>
+                                        <a href="/about" class="text text-16 link" aria-label="Working Process">
+                                            Working Process
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/privacy-policy" class="text text-16 link"
+                                            aria-label="Privacy Policy">
+                                            Privacy Policy
+                                        </a>
+                                    </li>
+                                    <li>
+                                    <a href="/projects" class="text text-16 link"
+                                            aria-label="Impact Story">
+                                            Impact Story
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/faq" class="text text-16 link" aria-label="FAQ">
+                                            Faqs
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
   
-              <div class="footer-bottom"
-                  style="background: rgba(0,0,0,0.3); margin-top: 0; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); width: 100%;">
-                  <div class="container-fluid">
-                      <div class="row footer-bottom-row" style="align-items: center;">
-                          <div class="col-12 col-md-6 col-lg-6">
-                              <div class="footer-copyright text text-16" style="margin: 0;">
-                                  Copyright ©<span class="current-year"></span> 229 Consulting. All rights reserved.
-                              </div>
-                          </div>
-                          <div class="col-12 col-md-6 col-lg-6">
-                              <ul class="footer-menu footer-policies list-unstyled" style="margin: 0;">
-                                  <li>
-                                      <a href="/privacy-policy" class="text text-16 link" aria-label="Privacy Policy">
-                                          Privacy Policy
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="/faq" class="text text-16 link" aria-label="FAQ">
-                                          FAQs
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="/contact" class="text text-16 link" aria-label="Contact">
-                                          Contact
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            <div class="footer-bottom"
+                style="background: rgba(0,0,0,0.3); margin-top: 0; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); width: 100%;">
+                <div class="container-fluid">
+                    <div class="row footer-bottom-row" style="align-items: center;">
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="footer-copyright text text-16" style="margin: 0;">
+                                Copyright ©<span class="current-year"></span> 229 Consulting. All rights reserved.
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <ul class="footer-menu footer-policies list-unstyled" style="margin: 0;">
+                                <li>
+                                    <a href="/privacy-policy" class="text text-16 link" aria-label="Privacy Policy">
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/faq" class="text text-16 link" aria-label="FAQ">
+                                        FAQs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contact" class="text text-16 link" aria-label="Contact">
+                                        Contact
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
   
-          </div>
-      </footer>
+        </div>
+    </footer>
+
   
       <!-- Modal and Drawer Overlay -->
       <drawer-opener id="drawer-overlay"></drawer-opener>

@@ -105,7 +105,7 @@ Route::post('/blog/{slug}/comment', function ($slug) {
     // Get authenticated user if available
     $user = auth()->user();
     
-    \Firefly\FilamentBlog\Models\Comment::create([
+    \App\Models\Comment::create([
         'post_id' => $post->id,
         'name' => $validated['name'], 
         'comment' => $validated['comment'],
@@ -115,6 +115,20 @@ Route::post('/blog/{slug}/comment', function ($slug) {
     
     return redirect()->back()->with('success', 'Your comment has been submitted and is awaiting approval.');
 })->name('blog.comment.store');
+
+// Route to handle newsletter subscription
+Route::post('/newsletter/subscribe', function () {
+    $validated = request()->validate([
+        'email' => 'required|email|unique:fblog_news_letters,email',
+    ]);
+
+    \Firefly\FilamentBlog\Models\NewsLetter::create([
+        'email' => $validated['email'],
+        'subscribed' => true,
+    ]);
+
+    return redirect()->back()->with('success', 'Thank you for subscribing to our newsletter!');
+})->name('newsletter.subscribe');
 
 Route::get('/contact', function () {
     return view('pages.contact');

@@ -6,8 +6,8 @@ use App\Filament\Resources\Categories\CategoryResource;
 use App\Filament\Resources\Posts\PostResource;
 use App\Filament\Resources\Tags\TagResource;
 use App\Filament\Resources\SeoDetails\SeoDetailResource;
-use App\Filament\Resources\Newsletters\NewsletterResource;
 use App\Filament\Resources\Comments\CommentResource;
+use App\Filament\Resources\Newsletters\NewsletterResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
@@ -30,8 +30,9 @@ class CustomBlog implements Plugin
             PostResource::class,
             TagResource::class,
             SeoDetailResource::class,
-            // NewsletterResource::class,
             CommentResource::class,
+            NewsletterResource::class,
+            // ShareSnippet and Setting resources are EXCLUDED
         ]);
     }
 
