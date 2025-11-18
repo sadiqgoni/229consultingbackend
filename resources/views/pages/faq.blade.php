@@ -3,6 +3,12 @@
   <head>
     <title>Frequently Asked Questions - 229 Consulting | Strategy & Leadership Advisory</title>
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/x-icon">
+ <!-- Favicon -->
+ <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}">
+ <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/img/favicon-32x32.png') }}">
+ <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/img/favicon-16x16.png') }}">
+ <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/apple-touch-icon.png') }}">
+ <link rel="manifest" href="{{ asset('assets/img/site.webmanifest') }}">
 
     <!-- meta tags -->
     <meta charset="utf-8">
